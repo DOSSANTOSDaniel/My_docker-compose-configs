@@ -1,0 +1,13 @@
+version: '3'
+services:
+  pinchflat:
+    image: ghcr.io/kieraneglin/pinchflat:latest
+    environment:
+      - TZ=Europe/Paris
+      - BASIC_AUTH_USERNAME=daniel
+      - BASIC_AUTH_PASSWORD=1234
+    ports:
+      - '8945:8945'
+    volumes:
+      - ./config:/config
+      - ./downloads:/downloads

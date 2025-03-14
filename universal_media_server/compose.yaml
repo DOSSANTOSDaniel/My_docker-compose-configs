@@ -1,0 +1,11 @@
+services:
+  universalmediaserver:
+    image: universalmediaserver/ums
+    container_name: UMS
+    environment:
+      - UMS_PROFILE=/profile
+    network_mode: host
+    volumes:
+      - ./data:/root/media:ro
+      - ./profile:/profile
+    restart: unless-stopped

@@ -1,0 +1,15 @@
+services:
+  convertx: 
+    image: ghcr.io/c4illin/convertx
+    container_name: convertx
+    restart: unless-stopped
+    ports:
+      - "3444:3000"
+    environment: # Defaults are listed below. All are optional.
+      - ACCOUNT_REGISTRATION=false 
+      - JWT_SECRET=dkfjfgngjdfjgfjgfdjglkjgfdsmljhjlkklmuh54544564jgf45fd54hg545d4g5h5f4hg56f4
+      - HTTP_ALLOWED=true
+      - ALLOW_UNAUTHENTICATED=false # allows anyone to use the service without logging in, only set this to true locally
+      - AUTO_DELETE_EVERY_N_HOURS=24 
+    volumes:
+      - ./data:/app/data

@@ -1,0 +1,18 @@
+version: '3.3'
+services:
+  stirling-pdf:
+    image: stirlingtools/stirling-pdf:latest-fat
+    ports:
+      - '8080:8080'
+    volumes:
+      - ./trainingData:/usr/share/tesseract-ocr/4.00/tessdata 
+      - ./extraConfigs:/configs
+      - ./tessdata:/usr/share/tessdata
+    environment:
+      - DOCKER_ENABLE_SECURITY=true
+      - SECURITY_ENABLE_LOGIN=true
+      - INSTALL_BOOK_AND_ADVANCED_HTML_OPS=true
+      - LANGS=fr_FR
+      - UI_APP_NAME=Stirling PDF
+      - UI_HOME_DESCRIPTION=Boîte à outils de gestion PDF libre et open source.
+      - UI_APP_NAVBAR_NAME=Stirling PDF

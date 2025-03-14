@@ -1,0 +1,10 @@
+version: '3.9'
+services:
+    optional:
+        command: yt-dlp-webui
+        image: marcobaobao/yt-dlp-webui
+        volumes:
+            - ./config:/config
+            - ./downloads:/downloads
+        ports:
+            - '3033:3033'
