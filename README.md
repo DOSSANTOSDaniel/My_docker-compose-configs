@@ -1,5 +1,6 @@
 # 🚢 Docker Compose Configurations  
-Ce dépôt contient mes fichiers **docker-compose.yml** pour divers services auto-hébergés. 
+Ce dépôt contient mes fichiers **docker-compose.yml** pour divers services auto-hébergés.
+
 Chaque dossier correspond à un service.  
 
 ## 🛠 Services Disponibles  
