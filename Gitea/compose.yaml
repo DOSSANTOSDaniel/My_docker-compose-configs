@@ -1,0 +1,29 @@
+services:
+# Serveur Gitea
+  gitea:
+   image: docker.io/gitea/gitea:latest
+   container_name: ct_gitea
+   environment:
+     - USER_UID=1000
+     - USER_GID=1000
+     - INSTALL_LOCK=true
+     - GITEA__service__DISABLE_REGISTRATION=true
+     - GITEA__picture__AVATAR_MAX_FILE_SIZE=6048576
+     - GITEA__repository.upload__FILE_MAX_SIZE=1000 # mb
+     - GITEA__repository.upload__MAX_FILES=30
+     - GITEA__attachment__MAX_SIZE=1000 # mb
+     - GITEA__attachment__MAX_FILES=30
+   restart: always
+   volumes:
+     - /home/daniel/Containers/gitea/data:/data
+     - /home/daniel/Containers/gitea/config:/etc/gitea
+     - /etc/timezone:/etc/timezone:ro
+     - /etc/localtime:/etc/localtime:ro
+   ports:
+     - "3000:3000"
+     - "2222:22"
+   networks:
+     - gitea_net
+
+networks:
+  gitea_net:
