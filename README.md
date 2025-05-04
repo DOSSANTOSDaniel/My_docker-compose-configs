@@ -19,3 +19,6 @@ Chaque dossier correspond à un service.
 | **Universal Media Server** | Streaming média DLNA/UPnP                 | [Site](https://www.universalmediaserver.com) |
 | **YaCy**                 | Moteur de recherche peer-to-peer            | [Site](https://yacy.net) |
 | **yt-dlp-webui**         | Interface web pour yt-dlp                   | [GitHub](https://github.com/marcopeocchi/yt-dlp-webui) |
+| **Gitea**                | Plateforme de gestion de dépôts Git         | [Site](https://about.gitea.com/) |
+| **NTFY**                 | Service de notifications push               | [Site](https://ntfy.sh/) |
+
