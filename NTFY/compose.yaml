@@ -1,0 +1,37 @@
+services:
+ # Serveur de notification : https://docs.ntfy.sh/config/
+  ntfy:
+    image: docker.io/binwiederhier/ntfy
+    container_name: ct_ntfy
+    environment:
+      - TZ=Europe/Paris
+      - NTFY_BEHIND_PROXY=true
+      - NTFY_CACHE_FILE=/var/cache/ntfy/cache.db
+      - NTFY_CACHE_DURATION=365h
+         # Permet de joindre des fichiers aux messages
+      - NTFY_ATTACHMENT_CACHE_DIR=/var/lib/ntfy/attachments
+      - NTFY_ATTACHMENT_TOTAL_SIZE_LIMIT=10g
+      - NTFY_ATTACHMENT_FILE_SIZE_LIMIT=1g
+      - NTFY_ATTACHMENT_EXPIRY_DURATION=168h
+      - NTFY_LISTEN_HTTP=:80
+      - NTFY_BASE_URL=https://noti.****.**
+      - NTFY_AUTH_FILE=/var/lib/ntfy/auth.db
+      - NTFY_AUTH_DEFAULT_ACCESS=deny-all
+      - NTFY_ENABLE_LOGIN=true
+         # Compatibilité IOS
+      - NTFY_UPSTRAM_BASE_URL=https://noti.****.**
+        #- NTFY_WEB_ROOT=disable # Désactive l'interface web
+      - NTFY_LOG_LEVEL=warn #panic, fatal, error, warn, info, debug/trace
+    volumes:
+      - /home/daniel/Containers/ntfy/cache:/var/cache/ntfy
+      - /home/daniel/Containers/ntfy/lib:/var/lib/ntfy
+    ports:
+      - 8181:80
+    command:
+      - serve
+    restart: unless-stopped
+    networks:
+      - ntfy_net
+
+networks:
+  ntfy_net:
